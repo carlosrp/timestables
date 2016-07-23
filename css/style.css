@@ -1,0 +1,53 @@
+.operation {
+  /*font-size: 32px;*/
+  /*font-weight: bold;*/
+  /*text-align: right;*/
+}
+
+.title {
+  font-family: 'Lato', sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+/*input {
+}*/
+
+.offscreen {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#form-result {
+  font-family: 'Lato', sans-serif;
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  font-size: 32px;
+  /*border: 3px solid #73AD21;*/
+  text-align: center;
+}
+
+#result {
+  /*float: left;*/
+  width: 85px;
+  /*font-size: 32px;*/
+}
+
+@media screen and (max-width: 449px) {
+  #form-result {
+    font-size: 24px;
+  }
+  #result {
+    width: 50px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+}

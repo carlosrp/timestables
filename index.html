@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Times Tables</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap-theme.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/style.css" />
+
+  </head>
+
+  <body class="container-fluid">
+
+      <p class="title">Times Tables</p>
+
+      <form class="form-inline" id="form-result" data-bind="submit: submitResult">
+        <label class="operation" for="result"><span data-bind="text: operation"></label>
+        <input type="number" id="result" required autofocus data-bind="value: inputResult"/>
+        <button type="submit" class="offscreen"></button>
+      </form>
+      <!-- <form id="form-location" data-bind="submit: updateCenter"> -->
+        <!-- <input type="text" class="form-control" id="address-input" data-bind="value: newAddress" required placeholder="Type in address..."/> -->
+        <!-- <a href="javascript:;" class="close" data-bind="click: closeAddress">×</a> -->
+      </form>
+
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/bootstrap-3.3.6.min.js"></script>
+    <script src="js/knockout-3.4.0.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+
+</html>
