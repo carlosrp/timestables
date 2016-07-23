@@ -64,8 +64,8 @@ var viewModel = {
   init: function() {
     viewModel.nextOperation();
   },
-  soundOk: new Audio('sound/ok.mp3'),
-  soundError: new Audio('sound/error.mp3')
+  soundOk: new Audio('sound/ok.wav'),
+  soundError: new Audio('sound/error.wav')
 };
 
 ko.applyBindings(viewModel);
