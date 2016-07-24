@@ -26,8 +26,13 @@
       <!-- <form id="form-location" data-bind="submit: updateCenter"> -->
         <!-- <input type="text" class="form-control" id="address-input" data-bind="value: newAddress" required placeholder="Type in address..."/> -->
         <!-- <a href="javascript:;" class="close" data-bind="click: closeAddress">×</a> -->
-      </form>
 
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar"
+          aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+          data-bind="style: {width: barProgress() + '%'}">
+        </div>
+      </div>
     <script src="js/jquery-2.2.3.min.js"></script>
     <script src="js/bootstrap-3.3.6.min.js"></script>
     <script src="js/knockout-3.4.0.min.js"></script>
