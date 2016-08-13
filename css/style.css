@@ -24,6 +24,15 @@
   width: 1px;
 }
 
+.intro-settings {
+  background-color: whitesmoke;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-right:10px;
+  /*width: 80%;*/
+  border-radius: 10px;
+}
+
 #form-result {
   font-family: 'Lato', sans-serif;
   margin: auto;
@@ -39,6 +48,19 @@
   width: 85px;
   /*font-size: 32px;*/
 }
+
+.main-view {
+  display: none;
+}
+
+.results-view {
+  display: none;
+  padding-bottom: 20px;
+}
+
+/*.starthidden {
+  display: none;
+}*/
 
 @media screen and (max-width: 449px) {
   #form-result {
