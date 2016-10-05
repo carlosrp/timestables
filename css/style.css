@@ -33,6 +33,22 @@
   border-radius: 10px;
 }
 
+#correct-answers {
+  font-size: 36px;
+  font-weight: bolder;
+  color: green;
+}
+
+#incorrect-answers {
+  font-size: 36px;
+  font-weight: bolder;
+  color: red;
+}
+
+#submit-settings {
+  margin: 20px;
+}
+
 #form-result {
   font-family: 'Lato', sans-serif;
   margin: auto;
@@ -62,8 +78,22 @@
   display: none;
 }*/
 
-@media screen and (max-width: 449px) {
-  #form-result {
+/*[class*="col"] {
+  width: 100%;
+}*/
+
+
+@media screen and (max-width: 490px) {
+  h1 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  #form-result, .intro-settings {
     font-size: 24px;
   }
   #result {
@@ -71,5 +101,9 @@
   }
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 491px) {
+  /*.intro-settings {font-size: 32px;}
+  .col1: {width: 33.33%;}
+  .col2: {width: 33.33%;}
+  .col3: {width: 33.33%;}*/
 }

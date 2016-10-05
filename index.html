@@ -20,7 +20,8 @@
 
     <div class="page-header title">
       <!-- <p class="title">Times Tables</p> -->
-      <h1>Times Tables<br><small>Practice your times tables skills</small></br></h1>
+      <h1>Times Tables</h1>
+      <h4>Practice your times tables skills</h4>
     <div>
 
     <div class="intro-settings"> <!-- jumbotron -->
@@ -28,20 +29,28 @@
         <h3>What do you want to practice?</h3>
 
         <div class="row">
-          <div class="col-xs-6">
+          </div>
+          <div id="tables" class="col-sm-4">
             <small>Tables:</small>
-            <select id="table-selection" multiple="multiple"
+            <select id="Table-selection" multiple="multiple"
               data-bind="options: availableTables, selectedOptions: selectedTables">
             </select>
           </div>
-          <div class="col-xs-6">
+          <div id="operands" class="col-sm-4">
             <small>Operands:</small>
             <select id="Operand-selection" multiple="multiple"
               data-bind="options: availableOperands, selectedOptions: selectedOperands">
             </select>
           </div>
+          <div id="level" class="col-sm-4">
+            <small>Level:</small>
+            <select id="Level-selection"
+                    data-bind="options: availableLevels,
+                               value: selectedLevel">
+            </select>
+          </div>
         </div>
-        <button class="btn btn-primary btn-lg" data-bind="click: submitInitialConfig">Start</button>
+        <button id="submit-settings" class="btn btn-primary btn-lg" data-bind="click: submitInitialConfig">Start</button>
       </div>
 
     </div>
@@ -61,6 +70,14 @@
           <div class="progress-bar progress-bar-success" role="progressbar"
             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
             data-bind="style: {width: barProgress() + '%'}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p id="correct-answers" data-bind="text: correctAnswers"></p>
+          </div>
+          <div class="col-xs-6">
+            <p id="incorrect-answers" data-bind="text: errors"></p>
           </div>
         </div>
       </div>

@@ -6,6 +6,9 @@ var model = {
   MAX_TABLES: 12,
   INITIAL_TIMER: 30,
   CORRECT_INCREMENT: 2,
+  FACTOR_EASY: 2.0,
+  FACTOR_MEDIUM: 1.4,
+  FACTOR_HARD: 0.8,
   lapseDecrement: 1,
   totalDuration: 0,
   tables: [],
@@ -46,10 +49,20 @@ var octopus = {
   /**
    * Initialise practice
    */
-  initPractice: function(tables, operands) {
+  initPractice: function(tables, operands, level) {
     // Update model tables and operands with initial selections
     model.tables = tables;
     model.operands = operands;
+    switch(level) {
+      case 'Medium':
+        model.level = model.FACTOR_MEDIUM;
+        break;
+      case 'Hard':
+        model.level = model.FACTOR_HARD;
+        break;
+      default:
+        model.level = model.FACTOR_EASY;
+    }
     // Get first operation
     viewModel.nextOperation();
     // Start timer for updating progress bar
@@ -71,7 +84,7 @@ var octopus = {
         octopus.finishPractice();
       }
       console.log('Total:', model.totalDuration, 'Decrementing:', model.lapseDecrement);
-    }, 1000);
+    }, 1000 * model.level);
   },
   /**
    * Finish practice: stop timer and show results view
@@ -125,10 +138,13 @@ var viewModel = {
   availableTables: ko.observable([2,3,4,5,6,7,8,9,10,11,12]),
   // List of available  Operands to be selected in initial form
   availableOperands: ko.observable([2,3,4,5,6,7,8,9,10,11,12]),
+  // List of available Levels to be selected in initial form
+  availableLevels: ko.observable(['Easy', 'Medium', 'Hard']),
   // List of selected Tables and Operands to practice
   selectedTables: ko.observableArray([2,3,4,5,6,7,8,9,10,11,12]),
   selectedOperands: ko.observableArray([2,3,4,5,6,7,8,9,10,11,12]),
-  // table in opeation displayed (table x operand)
+  selectedLevel: ko.observable('Easy'),
+  // table in operation displayed (table x operand)
   table: ko.observable(0),
   // operand in opeation displayed (table x operand)
   operand: ko.observable(0),
@@ -144,6 +160,10 @@ var viewModel = {
   correctAnswers: ko.observable(0),
   // Total of operations
   cntOperations: ko.observable(0),
+  // Computer number of incorrect operations
+  errors: ko.pureComputed(function(){
+    return viewModel.cntOperations() - viewModel.correctAnswers();
+  }, this),
   /**
    * Get next operation
    */
@@ -186,7 +206,7 @@ var viewModel = {
     // Unhide main view
     $('.main-view').show();
     // Start Practice
-    octopus.initPractice(viewModel.selectedTables(), viewModel.selectedOperands());
+    octopus.initPractice(viewModel.selectedTables(), viewModel.selectedOperands(), viewModel.selectedLevel);
   },
   /**
    * Called once the practice is finished, to show results view
@@ -200,16 +220,20 @@ var viewModel = {
    */
   init: function() {
     // Initial settings for options selection
-    $('#table-selection').multiselect({
+    $('#Table-selection').multiselect({
       includeSelectAllOption: true,
-      allSelectedText: 'All Tables'
+      allSelectedText: 'All'
     });
     $('#Operand-selection').multiselect({
       includeSelectAllOption: true,
-      allSelectedText: 'All Operands'
+      allSelectedText: 'All'
     });
+    $("#Level-selection").multiselect();
     // Initial setting of Progress bar
     viewModel.barProgress( octopus.getProgressPct() );
+    viewModel.inputResult('');
+    viewModel.cntOperations(0);
+    viewModel.correctAnswers(0);
   },
   /**
    * Called to restart practice
