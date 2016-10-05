@@ -6,7 +6,7 @@ var model = {
   MAX_TABLES: 12,
   INITIAL_TIMER: 30,
   CORRECT_INCREMENT: 2,
-  FACTOR_EASY: 2.0,
+  FACTOR_EASY: 2.4,
   FACTOR_MEDIUM: 1.4,
   FACTOR_HARD: 0.8,
   lapseDecrement: 1,
